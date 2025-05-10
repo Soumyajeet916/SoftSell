@@ -5,7 +5,7 @@
 ## 🔧 Tech Stack
 
 - **React.js** (via Vite)
-- **Tailwind CSS**
+- **Tailwind CSS** + **DaisyUI**
 - **Framer Motion** (animations)
 - **Lucide Icons**
 - **Dark/Light Mode Toggle**
@@ -28,6 +28,7 @@
 - Smooth **dark/light mode toggle**
 - Zoom-out hover effect via Framer Motion
 - Clean, modern UI with Tailwind styling
+- DaisyUI components
 - SEO-friendly meta tags and title
 
 ---
@@ -43,6 +44,8 @@ cd softsell-landing-page
 ### 2. Install Dependencies
 ```bash
 npm install
+# Required packages:
+npm install react react-dom vite tailwindcss daisyui framer-motion lucide-react
 ```
 
 ### 3. Run Locally
@@ -110,7 +113,4 @@ src/
 
 ## 📄 License
 
-This project is for educational/demo purposes only. No commercial use intended.
-# SoftSell
-# SoftSell
-# SoftSell
+MIT License
