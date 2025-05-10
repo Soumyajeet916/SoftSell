@@ -2,8 +2,6 @@ import React from 'react';
 import { ThumbsUp, ShieldCheck, Clock, DollarSign } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
-import ZoomOutCard from './ZoomOutCard';
-import '../index.css'; 
 
 const features = [
   {
@@ -29,54 +27,44 @@ const features = [
 ];
 
 const WhyChooseUs = () => {
-  const { darkMode } = useTheme();
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
+  const { isDark } = useTheme();
 
   return (
     <section 
       id="why-us" 
       className="py-20 px-6 sm:px-12 bg-gray-50 dark:bg-gray-800 transition-colors duration-300"
     >
-      <motion.div
-        className="max-w-6xl mx-auto text-center"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.h2
-          variants={itemVariants}
-          className="text-3xl sm:text-4xl font-bold mb-10 text-gray-900 dark:text-white transition-colors duration-300"
-        >
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-gray-900 dark:text-white transition-colors duration-300">
           Why Choose Us
-        </motion.h2>
-        {/* Add other content here */}
-      </motion.div>
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              <div className="mb-4 flex justify-center">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white transition-colors duration-300">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
-  )
-}
-  
+  );
+};
+
 export default WhyChooseUs;
 
 
-    
