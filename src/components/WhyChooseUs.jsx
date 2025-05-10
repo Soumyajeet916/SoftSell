@@ -2,6 +2,7 @@ import React from 'react';
 import { ThumbsUp, ShieldCheck, Clock, DollarSign } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import ZoomOutCard from './ZoomOutCard';
 
 const features = [
   {
@@ -40,6 +41,7 @@ const WhyChooseUs = () => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
+            <ZoomOutCard>
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -58,6 +60,7 @@ const WhyChooseUs = () => {
                 {feature.description}
               </p>
             </motion.div>
+            </ZoomOutCard>
           ))}
         </div>
       </div>
